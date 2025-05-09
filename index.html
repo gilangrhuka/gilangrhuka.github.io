@@ -1,650 +1,659 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gilang & Rhuka - Profesional Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    /* Custom CSS */
-    :root {
-      --primary: #1e3a8a;
-      --secondary: #3b82f6;
-      --dark: #1e293b;
-      --light: #f8fafc;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gilang & Rhuka - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS */
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #3b82f6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      scroll-behavior: smooth;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
 
-    .nav-item.active::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 3px;
-      background-color: var(--secondary);
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-    }
+        .nav-item.active::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary);
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
 
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -30px;
-      top: 0;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background-color: var(--primary);
-      border: 3px solid var(--secondary);
-    }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 3px solid var(--secondary);
+        }
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: -20px;
-      top: 0;
-      width: 2px;
-      height: 100%;
-      background-color: var(--secondary);
-    }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: var(--secondary);
+        }
 
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 90%;
-    }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
 
-    .lightbox-close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 30px;
-      cursor: pointer;
-    }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
 
-    .portfolio-item:hover .portfolio-overlay {
-      opacity: 1;
-    }
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
 
-    .portfolio-overlay {
-      transition: .3s ease;
-      opacity: 0;
-    }
+        .portfolio-overlay {
+            transition: .3s ease;
+            opacity: 0;
+        }
 
-    /* Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
 
-      to {
-        opacity: 1;
-      }
-    }
+            to {
+                opacity: 1;
+            }
+        }
 
-    .animate-fadeIn {
-      animation: fadeIn 1s ease-in-out;
-    }
-  </style>
+        .animate-fadeIn {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800">
-  <!-- Header & Navigation -->
-  <header class="fixed w-full bg-white shadow-md z-50">
-    <div class="container mx-auto px-6 py-3">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center">
-          <div class="text-xl font-bold text-blue-900 mr-2">G&R</div>
+    <!-- Header & Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="text-xl font-bold text-blue-900 mr-2">G&R</div>
 
+                </div>
+
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home"
+                        class="nav-item relative text-blue-900 font-medium hover:text-blue-600 transition">Home</a>
+                    <a href="#about"
+                        class="nav-item relative text-gray-600 font-medium hover:text-blue-600 transition">About
+                        Us</a>
+                    <a href="#skills"
+                        class="nav-item relative text-gray-600 font-medium hover:text-blue-600 transition">Skills</a>
+                    <a href="#contact"
+                        class="nav-item relative text-gray-600 font-medium hover:text-blue-600 transition">Contact</a>
+                </nav>
+
+                <button id="mobile-menu-button" class="md:hidden text-blue-900 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
 
-        <nav class="hidden md:flex space-x-8">
-          <a href="#home" class="nav-item relative text-blue-900 font-medium hover:text-blue-600 transition">Beranda</a>
-          <a href="#about" class="nav-item relative text-gray-600 font-medium hover:text-blue-600 transition">Tentang
-            Kami</a>
-          <a href="#skills"
-            class="nav-item relative text-gray-600 font-medium hover:text-blue-600 transition">Keahlian</a>
-          <a href="#contact"
-            class="nav-item relative text-gray-600 font-medium hover:text-blue-600 transition">Kontak</a>
-        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-blue-900 font-medium">Home</a>
+                <a href="#about" class="text-gray-600 font-medium">About Us</a>
+                <a href="#skills" class="text-gray-600 font-medium">Skills</a>
+                <a href="#contact" class="text-gray-600 font-medium">Contact</a>
+            </div>
+        </div>
+    </header>
 
-        <button id="mobile-menu-button" class="md:hidden text-blue-900 focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-blue-900 to-blue-700 text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate-fadeIn">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Gilang & Rhuka</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Professionals in Technology & Finance</h2>
+                    <p class="text-lg mb-8 max-w-lg">"Collaboration between technology and finance to create innovative
+                        and efficient business solutions."</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact"
+                            class="bg-white text-blue-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition">Contact
+                            Us</a>
+                        <a href="#skills"
+                            class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-900 transition">Our
+                            Skills</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div
+                            class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                            <img src="https://down-sg.img.susercontent.com/sg-11134209-7repi-m8g64s0ijm0m1b"
+                                alt="Gilang & Rhuka" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-5 -right-5 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">
+                            <span class="font-bold">Together</span> since 2021
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">About Us</h2>
+
+            <div class="flex flex-col md:flex-row mb-16">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <div class="flex items-center mb-6">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-blue-100">
+                            <img src="https://down-sg.img.susercontent.com/sg-11134209-7reol-m8g69s8gup492a"
+                                alt="Gilang Kurniawan" class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold text-blue-900">Gilang Kurniawan</h3>
+                            <p class="text-blue-600">Tokenomics Specialist & Web Developer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        A technology professional specializing in web development and tokenomics.
+                        With over 5 years of experience in building blockchain systems and scalable web applications.
+                    </p>
+                    <p class="text-gray-700">
+                        Core expertise includes smart contract development, blockchain system architecture, and
+                        integration
+                        of decentralized systems with traditional web platforms.
+                    </p>
+                </div>
+
+                <div class="md:w-1/2 md:pl-10">
+                    <div class="flex items-center mb-6">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-blue-100">
+                            <img src="https://down-sg.img.susercontent.com/sg-11134209-7reog-m8g6amu01bip1a"
+                                alt="Siti Rhuka" class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-bold text-blue-900">Siti Rhuka</h3>
+                            <p class="text-blue-600">Accountant & Financial Analyst</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        A finance professional with a strong background in accounting, financial management, and data
+                        analysis.
+                        With over 4 years of experience across various industries including technology and financial
+                        consulting.
+                    </p>
+                    <p class="text-gray-700">
+                        Specializes in accounting information systems, financial statement analysis, and financial
+                        strategy
+                        development for technology-based startups.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 rounded-xl p-8">
+                <h3 class="text-2xl font-bold text-blue-900 mb-6">Our Collaboration</h3>
+                <p class="text-gray-700 mb-6">
+                    As professional partners, we combine expertise in technology and finance to create comprehensive
+                    business solutions.
+                    Our collaboration enables a holistic approach in developing products and services that are not only
+                    technically robust but also
+                    financially sustainable.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <div class="text-blue-600 text-3xl mb-4">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Technology Development</h4>
+                        <p class="text-gray-600">Innovative and scalable web and blockchain solutions.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <div class="text-blue-600 text-3xl mb-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Financial Analysis</h4>
+                        <p class="text-gray-600">In-depth financial strategies and business analysis.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <div class="text-blue-600 text-3xl mb-4">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Business Consulting</h4>
+                        <p class="text-gray-600">Integrated approach for business growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">Our Skills</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Gilang's Skills -->
+                <div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-6 flex items-center">
+                        <i class="fas fa-code mr-3"></i> Gilang Kurniawan
+                    </h3>
+
+                    <div class="space-y-5">
+                        <!-- Skill 1 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Blockchain Development</span>
+                                <span class="text-sm font-medium text-gray-700">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 2 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Smart Contracts</span>
+                                <span class="text-sm font-medium text-gray-700">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 3 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Web Development</span>
+                                <span class="text-sm font-medium text-gray-700">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 4 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Tokenomics</span>
+                                <span class="text-sm font-medium text-gray-700">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-bold text-gray-700 mb-4">Technologies Mastered:</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                <i class="fab fa-ethereum text-blue-600 mr-2"></i>
+                                <span>Ethereum</span>
+                            </div>
+                            <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                <i class="fab fa-react text-blue-600 mr-2"></i>
+                                <span>React</span>
+                            </div>
+                            <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                <i class="fab fa-node-js text-green-600 mr-2"></i>
+                                <span>Node.js</span>
+                            </div>
+                            <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                <i class="fas fa-database text-blue-400 mr-2"></i>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                <i class="fab fa-js text-yellow-400 mr-2"></i>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rhuka's Skills -->
+                <div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-6 flex items-center">
+                        <i class="fas fa-calculator mr-3"></i> Siti Rhuka
+                    </h3>
+
+                    <div class="space-y-5">
+                        <!-- Skill 1 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Financial Accounting</span>
+                                <span class="text-sm font-medium text-gray-700">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 2 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Financial Data Analysis</span>
+                                <span class="text-sm font-medium text-gray-700">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 3 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Accounting Information Systems</span>
+                                <span class="text-sm font-medium text-gray-700">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill 4 -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="font-medium text-gray-700">Financial Risk Management</span>
+                                <span class="text-sm font-medium text-gray-700">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-bold text-gray-700 mb-4">Tools Mastered:</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                <i class="fas fa-file-excel text-green-600 mr-2"></i>
+                                <span>Excel</span>
+                            </div>
+                            <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                <i class="fas fa-chart-bar text-blue-400 mr-2"></i>
+                                <span>Power BI</span>
+                            </div>
+                            <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                <i class="fas fa-database text-blue-600 mr-2"></i>
+                                <span>SQL</span>
+                            </div>
+                            <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                <i class="fas fa-calculator text-orange-500 mr-2"></i>
+                                <span>QuickBooks</span>
+                            </div>
+                            <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
+                                <i class="fas fa-chart-pie text-purple-500 mr-2"></i>
+                                <span>SAP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-blue-900 text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
+
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-blue-300 mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Address</h4>
+                                <p class="text-blue-200">Jala'an, Padangan, Bojonegoro, East Java</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="text-blue-300 mr-4 mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Email</h4>
+                                <p class="text-blue-200">gilangrhuka@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="text-blue-300 mr-4 mt-1">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Phone</h4>
+                                <p class="text-blue-200">+62 895 71144 5566</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold mt-10 mb-6">Social Media</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://www.tiktok.com/@gilangrhuka"
+                            class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.facebook.com/gkurniawant/"
+                            class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/gilangkurniawan_15/"
+                            class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.instagram.com/faulin05/"
+                            class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2">
+                    <h3 class="text-xl font-bold mb-6">Send Message</h3>
+
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block mb-1">Your Name</label>
+                                <input type="text" id="name"
+                                    class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-blue-400"
+                                    placeholder="Full name">
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-1">Email</label>
+                                <input type="email" id="email"
+                                    class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-blue-400"
+                                    placeholder="Email address">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block mb-1">Subject</label>
+                            <input type="text" id="subject"
+                                class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-blue-400"
+                                placeholder="Message subject">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block mb-1">Message</label>
+                            <textarea id="message" rows="4"
+                                class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-blue-400"
+                                placeholder="Write your message"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="px-6 py-3 bg-white text-blue-900 rounded-lg font-medium hover:bg-gray-100 transition"
+                            disabled>
+                            Send Message
+                        </button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-950 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="text-xl font-bold mb-2">Gilang & Rhuka</div>
+                    <p class="text-blue-300">Professional collaboration in technology and finance.</p>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-4">
+                        <a href="#" class="hover:text-blue-300 transition">Home</a>
+                        <a href="#about" class="hover:text-blue-300 transition">About</a>
+                        <a href="#portfolio" class="hover:text-blue-300 transition">Portfolio</a>
+                        <a href="#contact" class="hover:text-blue-300 transition">Contact</a>
+                    </div>
+                    <p class="text-blue-300 text-sm">© 2021 Gilang & Rhuka. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" src="" alt="">
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
-      <div class="flex flex-col space-y-3">
-        <a href="#home" class="text-blue-900 font-medium">Beranda</a>
-        <a href="#about" class="text-gray-600 font-medium">Tentang Kami</a>
-        <a href="#skills" class="text-gray-600 font-medium">Keahlian</a>
-        <a href="#contact" class="text-gray-600 font-medium">Kontak</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-blue-900 to-blue-700 text-white">
-    <div class="container mx-auto px-6">
-      <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2 mb-10 md:mb-0 animate-fadeIn">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">Gilang & Rhuka</h1>
-          <h2 class="text-2xl md:text-3xl font-semibold mb-6">Profesional di Bidang Teknologi & Keuangan</h2>
-          <p class="text-lg mb-8 max-w-lg">"Kolaborasi antara teknologi dan keuangan untuk menciptakan solusi bisnis
-            yang inovatif dan efisien."</p>
-          <div class="flex space-x-4">
-            <a href="#contact"
-              class="bg-white text-blue-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition">Hubungi
-              Kami</a>
-            <a href="#skills"
-              class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-900 transition">Keahlian
-              Kami</a>
-          </div>
-        </div>
-        <div class="md:w-1/2 flex justify-center">
-          <div class="relative">
-            <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
-              <img src="https://down-sg.img.susercontent.com/sg-11134209-7repi-m8g64s0ijm0m1b" alt="Gilang & Rhuka"
-                class="w-full h-full object-cover">
-            </div>
-            <div class="absolute -bottom-5 -right-5 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">
-              <span class="font-bold">Bersama</span> sejak 2021
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-16 bg-white">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">Tentang Kami</h2>
-
-      <div class="flex flex-col md:flex-row mb-16">
-        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-          <div class="flex items-center mb-6">
-            <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-blue-100">
-              <img src="https://down-sg.img.susercontent.com/sg-11134209-7reol-m8g69s8gup492a" alt="Gilang Kurniawan"
-                class="w-full h-full object-cover">
-            </div>
-            <div class="ml-6">
-              <h3 class="text-xl font-bold text-blue-900">Gilang Kurniawan</h3>
-              <p class="text-blue-600">Tokenomics Specialist & Web Developer</p>
-            </div>
-          </div>
-          <p class="text-gray-700 mb-4">
-            Seorang profesional di bidang teknologi dengan spesialisasi dalam pengembangan web dan tokenomics.
-            Memiliki pengalaman lebih dari 5 tahun dalam membangun sistem blockchain dan aplikasi web yang scalable.
-          </p>
-          <p class="text-gray-700">
-            Keahlian utama meliputi pengembangan smart contract, arsitektur sistem blockchain, dan integrasi sistem
-            terdesentralisasi dengan platform web tradisional.
-          </p>
-        </div>
-
-        <div class="md:w-1/2 md:pl-10">
-          <div class="flex items-center mb-6">
-            <div class="w-20 h-20 rounded-full overflow-hidden border-4 border-blue-100">
-              <img src="https://down-sg.img.susercontent.com/sg-11134209-7reog-m8g6amu01bip1a" alt="Siti Rhuka"
-                class="w-full h-full object-cover">
-            </div>
-            <div class="ml-6">
-              <h3 class="text-xl font-bold text-blue-900">Siti Rhuka</h3>
-              <p class="text-blue-600">Akuntan & Analis Keuangan</p>
-            </div>
-          </div>
-          <p class="text-gray-700 mb-4">
-            Profesional di bidang keuangan dengan latar belakang kuat dalam akuntansi, manajemen keuangan, dan analisis
-            data.
-            Berpengalaman lebih dari 4 tahun di berbagai industri termasuk teknologi dan konsultasi keuangan.
-          </p>
-          <p class="text-gray-700">
-            Spesialisasi dalam sistem informasi akuntansi, analisis laporan keuangan, dan pengembangan strategi keuangan
-            untuk perusahaan rintisan berbasis teknologi.
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-blue-50 rounded-xl p-8">
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Kolaborasi Kami</h3>
-        <p class="text-gray-700 mb-6">
-          Sebagai pasangan profesional, kami menggabungkan keahlian di bidang teknologi dan keuangan untuk menciptakan
-          solusi bisnis yang komprehensif.
-          Kolaborasi kami memungkinkan pendekatan holistik dalam mengembangkan produk dan layanan yang tidak hanya
-          secara teknis kuat tetapi juga
-          secara finansial sustainable.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
-            <div class="text-blue-600 text-3xl mb-4">
-              <i class="fas fa-code"></i>
-            </div>
-            <h4 class="font-bold text-lg mb-2">Pengembangan Teknologi</h4>
-            <p class="text-gray-600">Solusi web dan blockchain yang inovatif dan scalable.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
-            <div class="text-blue-600 text-3xl mb-4">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <h4 class="font-bold text-lg mb-2">Analisis Keuangan</h4>
-            <p class="text-gray-600">Strategi keuangan dan analisis bisnis yang mendalam.</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
-            <div class="text-blue-600 text-3xl mb-4">
-              <i class="fas fa-handshake"></i>
-            </div>
-            <h4 class="font-bold text-lg mb-2">Konsultasi Bisnis</h4>
-            <p class="text-gray-600">Pendekatan terintegrasi untuk pertumbuhan bisnis.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- Skills Section -->
-  <section id="skills" class="py-16 bg-gray-50">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-blue-900 mb-12">Keahlian Kami</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <!-- Gilang's Skills -->
-        <div>
-          <h3 class="text-xl font-bold text-blue-900 mb-6 flex items-center">
-            <i class="fas fa-code mr-3"></i> Gilang Kurniawan
-          </h3>
-
-          <div class="space-y-5">
-            <!-- Skill 1 -->
-            <div>
-              <div class="flex justify-between mb-1">
-                <span class="font-medium text-gray-700">Blockchain Development</span>
-                <span class="text-sm font-medium text-gray-700">90%</span>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
-              </div>
-            </div>
-
-            <!-- Skill 2 -->
-            <div>
-              <div class="flex justify-between mb-1">
-                <span class="font-medium text-gray-700">Smart Contracts</span>
-                <span class="text-sm font-medium text-gray-700">85%</span>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
-              </div>
-            </div>
-
-            <!-- Skill 3 -->
-            <div>
-              <div class="flex justify-between mb-1">
-                <span class="font-medium text-gray-700">Web Development</span>
-                <span class="text-sm font-medium text-gray-700">80%</span>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 80%"></div>
-              </div>
-            </div>
-
-            <!-- Skill 4 -->
-            <div>
-              <div class="flex justify-between mb-1">
-                <span class="font-medium text-gray-700">Tokenomics</span>
-                <span class="text-sm font-medium text-gray-700">95%</span>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 95%"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-8">
-            <h4 class="font-bold text-gray-700 mb-4">Teknologi yang Dikuasai:</h4>
-            <div class="flex flex-wrap gap-3">
-              <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
-                <i class="fab fa-ethereum text-blue-600 mr-2"></i>
-                <span>Ethereum</span>
-              </div>
-              <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
-                <i class="fab fa-react text-blue-600 mr-2"></i>
-                <span>React</span>
-              </div>
-              <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
-                <i class="fab fa-node-js text-green-600 mr-2"></i>
-                <span>Node.js</span>
-              </div>
-              <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
-                <i class="fas fa-database text-blue-400 mr-2"></i>
-                <span>MongoDB</span>
-              </div>
-              <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
-                <i class="fab fa-js text-yellow-400 mr-2"></i>
-                <span>JavaScript</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Rhuka's Skills -->
-        <div>
-          <h3 class="text-xl font-bold text-blue-900 mb-6 flex items-center">
-            <i class="fas fa-calculator mr-3"></i> Siti Rhuka
-          </h3>
-
-          <div class="space-y-5">
-            <!-- Skill 1 -->
-            <div>
-              <div class="flex justify-between mb-1">
-                <span class="font-medium text-gray-700">Akuntansi Keuangan</span>
-                <span class="text-sm font-medium text-gray-700">95%</span>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 95%"></div>
-              </div>
-            </div>
-
-            <!-- Skill 2 -->
-            <div>
-              <div class="flex justify-between mb-1">
-                <span class="font-medium text-gray-700">Analisis Data Keuangan</span>
-                <span class="text-sm font-medium text-gray-700">90%</span>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
-              </div>
-            </div>
-
-            <!-- Skill 3 -->
-            <div>
-              <div class="flex justify-between mb-1">
-                <span class="font-medium text-gray-700">Sistem Informasi Akuntansi</span>
-                <span class="text-sm font-medium text-gray-700">85%</span>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 85%"></div>
-              </div>
-            </div>
-
-            <!-- Skill 4 -->
-            <div>
-              <div class="flex justify-between mb-1">
-                <span class="font-medium text-gray-700">Manajemen Risiko Keuangan</span>
-                <span class="text-sm font-medium text-gray-700">88%</span>
-              </div>
-              <div class="w-full bg-gray-200 rounded-full h-2.5">
-                <div class="bg-blue-600 h-2.5 rounded-full" style="width: 88%"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-8">
-            <h4 class="font-bold text-gray-700 mb-4">Alat yang Dikuasai:</h4>
-            <div class="flex flex-wrap gap-3">
-              <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
-                <i class="fas fa-file-excel text-green-600 mr-2"></i>
-                <span>Excel</span>
-              </div>
-              <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
-                <i class="fas fa-chart-bar text-blue-400 mr-2"></i>
-                <span>Power BI</span>
-              </div>
-              <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
-                <i class="fas fa-database text-blue-600 mr-2"></i>
-                <span>SQL</span>
-              </div>
-              <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
-                <i class="fas fa-calculator text-orange-500 mr-2"></i>
-                <span>QuickBooks</span>
-              </div>
-              <div class="flex items-center bg-gray-100 px-3 py-1 rounded-full">
-                <i class="fas fa-chart-pie text-purple-500 mr-2"></i>
-                <span>SAP</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-blue-900 text-white">
-    <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-12">Hubungi Kami</h2>
-
-      <div class="flex flex-col md:flex-row">
-        <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-          <h3 class="text-xl font-bold mb-6">Informasi Kontak</h3>
-
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <div class="text-blue-300 mr-4 mt-1">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div>
-                <h4 class="font-bold">Alamat</h4>
-                <p class="text-blue-200">Jala'an, Padangan, Bojonegoro, Jawa Timur</p>
-              </div>
-            </div>
-
-            <div class="flex items-start">
-              <div class="text-blue-300 mr-4 mt-1">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div>
-                <h4 class="font-bold">Email</h4>
-                <p class="text-blue-200">gilangrhuka@gmail.com</p>
-              </div>
-            </div>
-
-            <div class="flex items-start">
-              <div class="text-blue-300 mr-4 mt-1">
-                <i class="fas fa-phone"></i>
-              </div>
-              <div>
-                <h4 class="font-bold">Telepon</h4>
-                <p class="text-blue-200">+62 895 71144 5566</p>
-              </div>
-            </div>
-          </div>
-
-          <h3 class="text-xl font-bold mt-10 mb-6">Media Sosial</h3>
-          <div class="flex space-x-4">
-            <a href="https://www.tiktok.com/@gilangrhuka"
-              class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition">
-              <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="https://www.facebook.com/gkurniawant/"
-              class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition">
-              <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/gilangkurniawan_15/"
-              class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.instagram.com/faulin05/"
-              class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="md:w-1/2">
-          <h3 class="text-xl font-bold mb-6">Kirim Pesan</h3>
-
-          <form class="space-y-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label for="name" class="block mb-1">Nama Anda</label>
-                <input type="text" id="name"
-                  class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-blue-400"
-                  placeholder="Nama lengkap">
-              </div>
-              <div>
-                <label for="email" class="block mb-1">Email</label>
-                <input type="email" id="email"
-                  class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-blue-400"
-                  placeholder="Alamat email">
-              </div>
-            </div>
-
-            <div>
-              <label for="subject" class="block mb-1">Subjek</label>
-              <input type="text" id="subject"
-                class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-blue-400"
-                placeholder="Subjek pesan">
-            </div>
-
-            <div>
-              <label for="message" class="block mb-1">Pesan</label>
-              <textarea id="message" rows="4"
-                class="w-full px-4 py-2 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-blue-400"
-                placeholder="Tulis pesan Anda"></textarea>
-            </div>
-
-            <button type="submit"
-              class="px-6 py-3 bg-white text-blue-900 rounded-lg font-medium hover:bg-gray-100 transition" disabled>
-              Kirim Pesan
-            </button>
-
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-blue-950 text-white py-8">
-    <div class="container mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-4 md:mb-0">
-          <div class="text-xl font-bold mb-2">Gilang & Rhuka</div>
-          <p class="text-blue-300">Kolaborasi profesional di bidang teknologi dan keuangan.</p>
-        </div>
-
-        <div class="flex flex-col items-center md:items-end">
-          <div class="flex space-x-6 mb-4">
-            <a href="#" class="hover:text-blue-300 transition">Beranda</a>
-            <a href="#about" class="hover:text-blue-300 transition">Tentang</a>
-            <a href="#portfolio" class="hover:text-blue-300 transition">Portfolio</a>
-            <a href="#contact" class="hover:text-blue-300 transition">Kontak</a>
-          </div>
-          <p class="text-blue-300 text-sm">© 2021 Gilang & Rhuka. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox">
-    <span class="lightbox-close">&times;</span>
-    <img id="lightbox-img" class="lightbox-content" src="" alt="">
-  </div>
-
-  <!-- JavaScript -->
-  <script>
-    // Mobile menu toggle
-    document.getElementById('mobile-menu-button').addEventListener('click', function () {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    });
-
-    // Active navigation item
-    const navItems = document.querySelectorAll('.nav-item');
-    const sections = document.querySelectorAll('section');
-
-    window.addEventListener('scroll', function () {
-      let current = '';
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-
-        if (pageYOffset >= (sectionTop - 100)) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navItems.forEach(item => {
-        item.classList.remove('active');
-        if (item.getAttribute('href') === `#${current}`) {
-          item.classList.add('active');
-        }
-      });
-    });
-
-    // Lightbox functionality
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxClose = document.querySelector('.lightbox-close');
-
-    portfolioItems.forEach(item => {
-      item.addEventListener('click', function () {
-        const imgSrc = this.querySelector('img').src;
-        lightboxImg.src = imgSrc;
-        lightbox.style.display = 'flex';
-      });
-    });
-
-    lightboxClose.addEventListener('click', function () {
-      lightbox.style.display = 'none';
-    });
-
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox) {
-        lightbox.style.display = 'none';
-      }
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         });
 
-        // Close mobile menu if open
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (!mobileMenu.classList.contains('hidden')) {
-          mobileMenu.classList.add('hidden');
-        }
-      });
-    });
-  </script>
+        // Active navigation item
+        const navItems = document.querySelectorAll('.nav-item');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', function () {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${current}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Lightbox functionality
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.querySelector('.lightbox-close');
+
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', function () {
+                const imgSrc = this.querySelector('img').src;
+                lightboxImg.src = imgSrc;
+                lightbox.style.display = 'flex';
+            });
+        });
+
+        lightboxClose.addEventListener('click', function () {
+            lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', function (e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
