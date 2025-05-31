@@ -1,0 +1,88 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>
+        FamilyMart Receipt
+    </title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&amp;display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+        }
+    </style>
+</head>
+
+<body class="bg-white flex justify-center items-center min-h-screen p-4">
+    <main class="max-w-xs w-full text-black text-center select-none">
+        <button id="randomize-btn" class="mb-8 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 mr-2"
+            style="display: none;">Random
+            RCT NO</button>
+        <button id="download-btn" class="mb-8 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+            style="display: none;">Download</button>
+        <div class="flex justify-center mb-4">
+            <img alt="FamilyMart logo black double equal sign symbol" class="w-12 h-6" height="24" src="icon.png"
+                width="48" />
+            <h1 class="font-extrabold text-2xl leading-none ml-2">
+                FamilyMart
+            </h1>
+        </div>
+        <pre class="text-left text-sm leading-5">
+STORE : FMI RSUD CENGKARENG
+31/05/2025 12:51 ICH 002
+RCT NO : <strong id="rct-no">023173865870243</strong>
+CASHIER : Andi Hardiansah
+*SALES RECEIPT*
+Coca Cola Zero 390ml           6,300
+6,300 X 1
+Coca Cola Pet 250ml           17,600
+TOTAL                       Rp 2,900
+______________________________
+DANA                         23,900
+Z98057206JGJ12
+______________________________
+TOTAL PAID                  Rp 23,900
+CHANGES                          0
+# ITEM SOL:D                    5
+DPP Nilai Lain              Rp 2,132
+PPP                         PPP 1,0
+
+      Harga sudah termasuk pajak
+      PT Fajar Mitra Indah
+      WA Business: 0898-3862-8998
+      IG &amp; TIKTOK: @FamilyMartID
+    </pre>
+        <img alt="Black and white QR code for FamilyMart" class="mx-auto mt-2 w-18 h-18" height="72" src="qr.png"
+            width="72" />
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script>
+        function generateRandomRCT() {
+            let randomRCT = '';
+            for (let i = 0; i < 15; i++) {
+                randomRCT += Math.floor(Math.random() * 10);
+            }
+            document.getElementById('rct-no').textContent = randomRCT;
+        }
+
+        // Random RCT NO saat halaman dibuka
+        window.onload = generateRandomRCT;
+
+        document.getElementById('randomize-btn').onclick = generateRandomRCT;
+
+        document.getElementById('download-btn').onclick = function () {
+            const main = document.querySelector('main');
+            html2canvas(main).then(function (canvas) {
+                const link = document.createElement('a');
+                link.download = 'familymart-receipt.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        };
+    </script>
+</body>
+
+</html>
