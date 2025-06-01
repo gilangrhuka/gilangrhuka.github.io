@@ -163,6 +163,18 @@ PPP                     PPP 1,0
             return Math.floor(Math.random() * 9) + 2; // Random antara 2-10
         }
 
+        function getRandomTime() {
+            const hours = Math.floor(Math.random() * 24);
+            const minutes = Math.floor(Math.random() * 60);
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+        }
+
+        function getRandomDate() {
+            // Random tanggal antara 11 sampai 31
+            const day = Math.floor(Math.random() * 21) + 11; // 11-31
+            return day.toString().padStart(2, '0');
+        }
+
         function formatNumber(num) {
             return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
@@ -196,15 +208,30 @@ PPP                     PPP 1,0
             document.getElementById('dpp').textContent = formatNumber(Math.round(total * 0.089));
         }
 
+        function updateDateTime() {
+            // Ambil elemen pre yang berisi tanggal dan waktu
+            const preElement = document.querySelector('pre');
+            const content = preElement.innerHTML;
+
+            // Cari dan ganti waktu dengan format dd/mm/yyyy hh:mm
+            const randomTime = getRandomTime();
+            const randomDate = getRandomDate();
+            const updatedContent = content.replace(/(\d{2})\/(\d{2}\/\d{4}) \d{2}:\d{2}/, `${randomDate}/$2 ${randomTime}`);
+
+            preElement.innerHTML = updatedContent;
+        }
+
         // Update prices dan RCT saat halaman dibuka
         window.onload = function () {
             generateRandomRCT();
             updatePrices();
+            updateDateTime();
         }
 
         document.getElementById('randomize-btn').onclick = function () {
             generateRandomRCT();
             updatePrices();
+            updateDateTime();
         }
 
         document.getElementById('download-btn').onclick = function () {
