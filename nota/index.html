@@ -13,11 +13,97 @@
         body {
             font-family: 'Roboto Mono', monospace;
         }
+
+        main {
+            background-color: #f9f7f1;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efek kertas kusam */
+        main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/png;base64,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");
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        /* Efek garis kusam */
+        main::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 95%, rgba(0, 0, 0, 0.05) 100%);
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        pre {
+            color: #333;
+            opacity: 0.9;
+        }
+
+        /* Efek tinta printer yang tidak merata */
+        pre span {
+            position: relative;
+            display: inline-block;
+        }
+
+        pre span::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RkI0QjBEMzg4NkU1MTFFODlBRTRBNjMyNUE2MTk3NzgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RkI0QjBEMzk4NkU1MTFFODlBRTRBNjMyNUE2MTk3NzgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpGQjRCMEQzNjg2RTUxMUU4OUFFNEE2MzI1QTYxOTc3OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpGQjRCMEQzNzg2RTUxMUU4OUFFNEE2MzI1QTYxOTc3OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PnOmNvQAAAA0SURBVHjaYvj//z8DEIAw////DyLAwH8YZgQJwARgbJAYXAGIA1aALADiIxTA+CgKAAIMAGl2Qa+JOrYMAAAAAElFTkSuQmCC");
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        /* Efek lipatan kertas */
+        main {
+            position: relative;
+        }
+
+        main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.01) 50%, transparent 50.5%),
+                linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.02) 50%, transparent 50.5%);
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* Efek kertas thermal printer */
+        @media print {
+            main {
+                box-shadow: none;
+            }
+
+            body {
+                background-color: white;
+            }
+        }
     </style>
 </head>
 
-<body class="bg-white flex justify-center items-center min-h-screen p-4">
-    <main class="max-w-xs w-full text-black text-center select-none">
+<body class="bg-gray-100 flex justify-center items-center min-h-screen p-4">
+    <main class="max-w-xs w-full text-black text-center select-none p-5 rounded-sm">
         <button id="randomize-btn" class="mb-8 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 mr-2"
             style="display: none;">Random
             RCT NO</button>
@@ -32,22 +118,23 @@
         </div>
         <pre class="text-left text-sm leading-5">
 STORE : FMI RSUD CENGKARENG
-31/05/2025 12:51 ICH 002
+31/05/2025 10:22 ICH 002
 RCT NO : <strong id="rct-no">023173865870243</strong>
 CASHIER : Andi Hardiansah
 *SALES RECEIPT*
 Coca Cola Zero 390ml           6,300
-6,300 X 1
-Coca Cola Pet 250ml           17,600
-TOTAL                       Rp 2,900
+<span id="qty1">6,300 X 1</span>                      <span id="subtotal1">TOTAL PER ITEM</span>
+Coca Cola Pet 250ml            17,600
+<span id="qty2">17,600 X 1</span>                     <span id="subtotal2">TOTAL PER ITEM</span>
+TOTAL                       Rp <span id="total">23,900</span>
 ______________________________
-DANA                         23,900
+DANA                         <span id="dana">23,900</span>
 Z98057206JGJ12
 ______________________________
-TOTAL PAID                  Rp 23,900
+TOTAL PAID                  Rp <span id="total-paid">23,900</span>
 CHANGES                          0
-# ITEM SOL:D                    5
-DPP Nilai Lain              Rp 2,132
+# ITEM SOL:D                    <span id="total-items">5</span>
+DPP Nilai Lain              Rp <span id="dpp">2,132</span>
 PPP                         PPP 1,0
 
       Harga sudah termasuk pajak
@@ -68,10 +155,53 @@ PPP                         PPP 1,0
             document.getElementById('rct-no').textContent = randomRCT;
         }
 
-        // Random RCT NO saat halaman dibuka
-        window.onload = generateRandomRCT;
+        function getRandomQuantity() {
+            return Math.floor(Math.random() * 9) + 2; // Random antara 2-10
+        }
 
-        document.getElementById('randomize-btn').onclick = generateRandomRCT;
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function updatePrices() {
+            // Harga per item
+            const price1 = 6300;
+            const price2 = 17600;
+
+            // Generate random quantities
+            const qty1 = getRandomQuantity();
+            const qty2 = getRandomQuantity();
+
+            // Hitung subtotal
+            const subtotal1 = price1 * qty1;
+            const subtotal2 = price2 * qty2;
+            const total = subtotal1 + subtotal2;
+
+            // Update quantities dan subtotals dalam satu baris
+            document.getElementById('qty1').textContent = `${formatNumber(price1)} X ${qty1}`;
+            document.getElementById('subtotal1').textContent = `${formatNumber(subtotal1)}`;
+
+            document.getElementById('qty2').textContent = `${formatNumber(price2)} X ${qty2}`;
+            document.getElementById('subtotal2').textContent = `${formatNumber(subtotal2)}`;
+
+            // Update total dan nilai terkait
+            document.getElementById('total').textContent = formatNumber(total);
+            document.getElementById('dana').textContent = formatNumber(total);
+            document.getElementById('total-paid').textContent = formatNumber(total);
+            document.getElementById('total-items').textContent = qty1 + qty2;
+            document.getElementById('dpp').textContent = formatNumber(Math.round(total * 0.089));
+        }
+
+        // Update prices dan RCT saat halaman dibuka
+        window.onload = function () {
+            generateRandomRCT();
+            updatePrices();
+        }
+
+        document.getElementById('randomize-btn').onclick = function () {
+            generateRandomRCT();
+            updatePrices();
+        }
 
         document.getElementById('download-btn').onclick = function () {
             const main = document.querySelector('main');
