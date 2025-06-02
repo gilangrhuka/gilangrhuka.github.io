@@ -124,10 +124,10 @@
             </h1>
         </div>
         <pre class="text-left text-sm leading-5">
-STORE : FMI RSUD CENGKARENG
+STORE : FMI PULO GADUNG
 31/05/2025 10:22 ICH 002
 RCT NO : <strong id="rct-no">023173865870243</strong>
-CASHIER : Andi Hardiansah
+CASHIER : Cristiano Ronaldo
 *SALES RECEIPT*
 Coca Cola Zero 390ml       6,300
 <span id="qty1">6,300 X 1</span>                  <span id="subtotal1">TOTAL PER ITEM</span>
@@ -135,8 +135,8 @@ Coca Cola Pet 250ml        17,600
 <span id="qty2">17,600 X 1</span>                 <span id="subtotal2">TOTAL PER ITEM</span>
 TOTAL                   Rp <span id="total">23,900</span>
 ______________________________
-DANA                     <span id="dana">23,900</span>
-Z98057206JGJ12
+<span id="payment-method">DANA</span>                     <span id="dana">23,900</span>
+<span id="payment-id">Z98057206JGJ12</span>
 ______________________________
 TOTAL PAID              Rp <span id="total-paid">23,900</span>
 CHANGES                      0
@@ -149,10 +149,10 @@ PPP                     PPP 1,0
       WA Business: 0898-3862-8998
       IG &amp; TIKTOK: @FamilyMartID
     </pre>
-        <img alt="Black and white QR code for FamilyMart" class="mx-auto mt-2 w-18 h-18" height="72" src="qr.png"
-            width="72" />
+        <div id="qrcode" class="mx-auto mt-2" style="width:72px; height:72px;"></div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <script>
         function generateRandomRCT() {
             let randomRCT = '';
@@ -224,17 +224,100 @@ PPP                     PPP 1,0
             preElement.innerHTML = updatedContent;
         }
 
+        function updatePaymentMethod() {
+            const paymentMethods = ['DANA', 'SHOPEEPAY', 'OVO', 'GOPAY'];
+            const randomMethod = paymentMethods[Math.floor(Math.random() * paymentMethods.length)];
+
+            document.getElementById('payment-method').textContent = randomMethod;
+
+            // Generate random payment ID
+            let paymentId = '';
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            for (let i = 0; i < 12; i++) {
+                paymentId += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById('payment-id').textContent = paymentId;
+        }
+
+        function generateQRCode() {
+            const qrContainer = document.getElementById('qrcode');
+            qrContainer.innerHTML = ''; // Clear previous QR code
+
+            // Get payment data to encode in QR
+            const paymentMethod = document.getElementById('payment-method').textContent;
+            const paymentId = document.getElementById('payment-id').textContent;
+            const total = document.getElementById('total').textContent.replace(/,/g, '');
+
+            // Create QR code content
+            const qrContent = `${paymentMethod}:${paymentId}:${total}`;
+
+            // Buat canvas untuk QR code dengan ukuran tetap 72x72px
+            const canvas = document.createElement('canvas');
+            canvas.width = 72;
+            canvas.height = 72;
+
+            // Ukuran tetap
+            canvas.style.width = '72px';
+            canvas.style.height = '72px';
+
+            const ctx = canvas.getContext('2d');
+
+            // Ambil warna background dari receipt
+            const backgroundColor = getComputedStyle(document.querySelector('main')).backgroundColor || '#f9f7f1';
+
+            // Isi canvas dengan warna background receipt
+            ctx.fillStyle = backgroundColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Generate QR code
+            const typeNumber = 3; // Ukuran lebih kecil
+            const errorCorrectionLevel = 'L';
+            const qr = qrcode(typeNumber, errorCorrectionLevel);
+            qr.addData(qrContent);
+            qr.make();
+
+            // Gambar QR code ke canvas
+            const moduleCount = qr.getModuleCount();
+            const moduleSize = Math.floor(72 / moduleCount);
+            const margin = Math.floor((72 - (moduleSize * moduleCount)) / 2); // Tengahkan QR
+
+            // Gambar modul QR (kotak hitam)
+            ctx.fillStyle = '#000';
+            for (let row = 0; row < moduleCount; row++) {
+                for (let col = 0; col < moduleCount; col++) {
+                    if (qr.isDark(row, col)) {
+                        ctx.fillRect(
+                            margin + col * moduleSize,
+                            margin + row * moduleSize,
+                            moduleSize,
+                            moduleSize
+                        );
+                    }
+                }
+            }
+
+            // Tambahkan canvas ke container
+            qrContainer.appendChild(canvas);
+            qrContainer.style.display = 'flex';
+            qrContainer.style.justifyContent = 'center';
+            qrContainer.style.alignItems = 'center';
+        }
+
         // Update prices dan RCT saat halaman dibuka
         window.onload = function () {
             generateRandomRCT();
             updatePrices();
             updateDateTime();
+            updatePaymentMethod();
+            generateQRCode();
         }
 
         document.getElementById('randomize-btn').onclick = function () {
             generateRandomRCT();
             updatePrices();
             updateDateTime();
+            updatePaymentMethod();
+            generateQRCode();
         }
 
         document.getElementById('download-btn').onclick = function () {
