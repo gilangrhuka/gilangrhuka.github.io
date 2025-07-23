@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemutaran Video Aqiqah</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay muted playsinline>
+        <source src="aqiqah.mp4" type="video/mp4">
+        <source src="aqiqah2.mp4" type="video/mp4">
+        Maaf, browser Anda tidak mendukung pemutaran video.
+    </video>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const video = document.querySelector('video');
+            const videos = {
+                aqiqah: "aqiqah.mp4",
+                aqiqah2: "aqiqah2.mp4"
+            };
+            let aqiqahCount = 0;
+            let aqiqah2Count = 0;
+            let currentVideo = "aqiqah";
+
+            // Fungsi untuk mengatur sumber video
+            function setVideoSource(src) {
+                video.src = src;
+                video.load();
+                video.play().catch(function (error) {
+                    console.log("Pemutaran otomatis gagal:", error);
+                    // Beberapa browser memerlukan interaksi pengguna sebelum memutar video
+                    document.body.addEventListener('click', function () {
+                        video.play();
+                    }, { once: true });
+                });
+            }
+
+            // Memastikan video diputar secara otomatis
+            video.play().catch(function (error) {
+                console.log("Pemutaran otomatis gagal:", error);
+                // Beberapa browser memerlukan interaksi pengguna sebelum memutar video
+                document.body.addEventListener('click', function () {
+                    video.play();
+                }, { once: true });
+            });
+
+            // Mengelola urutan pemutaran video
+            video.addEventListener('ended', function () {
+                if (currentVideo === "aqiqah") {
+                    aqiqahCount++;
+                    if (aqiqahCount >= 1) { // Setelah 1x putar aqiqah
+                        currentVideo = "aqiqah2";
+                        aqiqahCount = 0;
+                        aqiqah2Count = 0;
+                        setVideoSource(videos.aqiqah2);
+                    } else {
+                        video.play(); // Lanjut putar aqiqah
+                    }
+                } else if (currentVideo === "aqiqah2") {
+                    aqiqah2Count++;
+                    if (aqiqah2Count >= 5) { // Setelah 5x putar aqiqah2
+                        currentVideo = "aqiqah";
+                        aqiqahCount = 0;
+                        aqiqah2Count = 0;
+                        setVideoSource(videos.aqiqah);
+                    } else {
+                        video.play(); // Lanjut putar aqiqah2
+                    }
+                }
+            });
+
+            // Inisialisasi dengan video pertama
+            setVideoSource(videos.aqiqah);
+        });
+    </script>
+</body>
+
+</html>
